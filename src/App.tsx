@@ -36,10 +36,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (renderAfterCalled.current) {
-      changeBodyColor();
-    }
-    renderAfterCalled.current = true;
+    changeBodyColor();
   }, []);
 
   return (
