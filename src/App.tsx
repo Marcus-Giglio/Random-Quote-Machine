@@ -1,7 +1,7 @@
 import './App.css';
 import Quote from './components/quote/Index';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 function App() {
   const colorArray: string[] = [
@@ -20,8 +20,6 @@ function App() {
   ];
 
   const [colorBody, setColorBody] = useState<string>('');
-
-  const renderAfterCalled = useRef(false);
 
   const changeBodyColor = () => {
     const randomColor =

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuoteLeft } from '@fortawesome/free-solid-svg-icons';
 import { faTwitter, faTumblr } from '@fortawesome/free-brands-svg-icons';
@@ -24,8 +24,6 @@ const Quote = (props: QuoteProps) => {
   const changeCurrentColor = () => {
     setColorBody(props.colorBody);
   };
-
-  const renderAfterCalled = useRef(false);
 
   const getQuote = async () => {
     await axios
@@ -58,11 +56,8 @@ const Quote = (props: QuoteProps) => {
   };
 
   useEffect(() => {
-    if (renderAfterCalled.current) {
-      getQuote();
-      setFadeClassActive(true);
-    }
-    renderAfterCalled.current = true;
+    getQuote();
+    setFadeClassActive(true);
   }, []);
 
   return (
